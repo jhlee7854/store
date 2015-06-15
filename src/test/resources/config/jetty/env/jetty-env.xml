@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure>
+	<New id="storeDB" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/storeDB</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+            	<Set name="driverClassName">org.hsqldb.jdbcDriver</Set>
+            	<Set name="url">jdbc:hsqldb:hsql://localhost/store</Set>
+            	<Set name="username">sa</Set>
+            	<Set name="password"></Set>
+            	<Set name="validationQuery">SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>
