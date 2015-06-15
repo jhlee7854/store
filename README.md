@@ -5,7 +5,7 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
 웹 어플리케이션 개발을 위해 maven기반의 프로젝트를 생성합니다.
 테스트 및 로그를 위해 pom.xml에 다음과 같이 의존성을 변경 및 추가 합니다.
 추가적으로 servlet-api에 대한 의존성도 추가하였습니다.
-"`
+```xml
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -32,12 +32,12 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
     	<scope>provided</scope>
     </dependency>
   </dependencies>
-"`
+```
 
 ## 2. 로컬에서 웹 어플리케이션 구동을 위한 Maven Plugin 설정
 웹 어플리케이션을 로컬에서 구동하기 하여 확인해 볼 수 있도록 Jetty Maven Plugin과 HSQLDB Maven Plugin을 프로젝트에 적용합니다.
 추가적으로 Maven Compiler Plugin도 설정하였습니다.
-"`
+```xml
   <build>
     <finalName>store</finalName>
     <pluginManagement>
@@ -144,4 +144,4 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
     	</plugin>
     </plugins>
   </build>
-"`
+```
