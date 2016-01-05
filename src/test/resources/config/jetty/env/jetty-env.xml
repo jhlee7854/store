@@ -6,7 +6,7 @@
         <Arg>
             <New class="org.apache.commons.dbcp.BasicDataSource">
             	<Set name="driverClassName">org.hsqldb.jdbcDriver</Set>
-            	<Set name="url">jdbc:hsqldb:hsql://localhost/store</Set>
+            	<Set name="url">jdbc:hsqldb:~/git/store/database/store</Set>
             	<Set name="username">sa</Set>
             	<Set name="password"></Set>
             	<Set name="validationQuery">SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS</Set>

@@ -84,44 +84,9 @@
 				    </dependency>
 	    		</dependencies>
     		</plugin>
-	    	<plugin>
-	    		<groupId>fr.avianey.mojo</groupId>
-	    		<artifactId>hsqldb-maven-plugin</artifactId>
-	    		<version>1.0.0</version>
-	    		<configuration>
-	    			<driver>org.hsqldb.jdbcDriver</driver>
-	    			<path>file:database/store</path>
-	    			<name>store</name>
-	    			<address>localhost</address>
-	    			<connectionURL>jdbc:hsqldb:hsql://localhost/store</connectionURL>
-	    			<username>sa</username>
-	    			<password></password>
-	    			<validationQuery>SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS</validationQuery>
-	    		</configuration>
-	    	</plugin>
    		</plugins>
     </pluginManagement>
     <plugins>
-    	<plugin>
-    		<groupId>fr.avianey.mojo</groupId>
-    		<artifactId>hsqldb-maven-plugin</artifactId>
-    		<executions>
-    			<execution>
-    				<id>start-hsqldb</id>
-    				<phase>pre-integration-test</phase>
-    				<goals>
-    					<goal>start</goal>
-    				</goals>
-    			</execution>
-    			<execution>
-    				<id>stop-hsqldb</id>
-    				<phase>post-integration-test</phase>
-    				<goals>
-    					<goal>stop</goal>
-    				</goals>
-    			</execution>
-    		</executions>
-    	</plugin>
     	<plugin>
     		<groupId>org.eclipse.jetty</groupId>
     		<artifactId>jetty-maven-plugin</artifactId>

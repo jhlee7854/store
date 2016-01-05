@@ -35,7 +35,7 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
 ```
 
 ## 2. 로컬에서 웹 어플리케이션 구동을 위한 Maven Plugin 설정
-웹 어플리케이션을 로컬에서 구동하기 하여 확인해 볼 수 있도록 Jetty Maven Plugin과 HSQLDB Maven Plugin을 프로젝트에 적용합니다.
+웹 어플리케이션을 로컬에서 구동하기 하여 확인해 볼 수 있도록 Jetty Maven Plugin을 프로젝트에 적용합니다.
 추가적으로 Maven Compiler Plugin도 설정하였습니다.
 ```xml
   <build>
@@ -84,44 +84,9 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
 				    </dependency>
 	    		</dependencies>
     		</plugin>
-	    	<plugin>
-	    		<groupId>fr.avianey.mojo</groupId>
-	    		<artifactId>hsqldb-maven-plugin</artifactId>
-	    		<version>1.0.0</version>
-	    		<configuration>
-	    			<driver>org.hsqldb.jdbcDriver</driver>
-	    			<path>file:database/store</path>
-	    			<name>store</name>
-	    			<address>localhost</address>
-	    			<connectionURL>jdbc:hsqldb:hsql://localhost/store</connectionURL>
-	    			<username>sa</username>
-	    			<password></password>
-	    			<validationQuery>SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS</validationQuery>
-	    		</configuration>
-	    	</plugin>
    		</plugins>
     </pluginManagement>
     <plugins>
-    	<plugin>
-    		<groupId>fr.avianey.mojo</groupId>
-    		<artifactId>hsqldb-maven-plugin</artifactId>
-    		<executions>
-    			<execution>
-    				<id>start-hsqldb</id>
-    				<phase>pre-integration-test</phase>
-    				<goals>
-    					<goal>start</goal>
-    				</goals>
-    			</execution>
-    			<execution>
-    				<id>stop-hsqldb</id>
-    				<phase>post-integration-test</phase>
-    				<goals>
-    					<goal>stop</goal>
-    				</goals>
-    			</execution>
-    		</executions>
-    	</plugin>
     	<plugin>
     		<groupId>org.eclipse.jetty</groupId>
     		<artifactId>jetty-maven-plugin</artifactId>
