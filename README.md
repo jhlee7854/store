@@ -110,3 +110,27 @@ store 프로젝트는 개인 학습을 위한 자바 웹 프로그래밍 입니�
     </plugins>
   </build>
 ```
+
+## 3. 로컬 데이터베이스(HSQLDB) 연동을 위한 Jetty 환경 설정파일 추가
+jetty와 hsqldb 연동을 위하여 maven 플러그인 설정에 명시한 것과 같은 위치(${project.basedir}/src/test/resources/config/jetty/env/jetty-env.xml)에 jetty-env.xml 파일을 작성합니다.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure>
+	<New id="storeDB" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jdbc/storeDB</Arg>
+        <Arg>
+            <New class="org.apache.commons.dbcp.BasicDataSource">
+            	<Set name="driverClassName">org.hsqldb.jdbcDriver</Set>
+            	<Set name="url">jdbc:hsqldb:~/git/store/database/store</Set>
+            	<Set name="username">sa</Set>
+            	<Set name="password"></Set>
+            	<Set name="validationQuery">SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS</Set>
+            </New>
+        </Arg>
+    </New>
+</Configure>
+```
+
+## References
++ [jetty maven plugin 설정](http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html)
